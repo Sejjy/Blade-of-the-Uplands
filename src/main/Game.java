@@ -6,7 +6,6 @@ import gamestates.Menu;
 import gamestates.Playing;
 
 public class Game implements Runnable {
-	private final static int qw = 0;
 	private GameWindow gameWindow;
 	private GamePanel gamePanel;
 	private Thread gameThread;
