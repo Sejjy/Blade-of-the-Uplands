@@ -48,6 +48,9 @@ public class LoadSave {
 	
 	public static final String LAND = "bg_land.png";
 	public static final String TREES = "bg_trees.png";
+
+	// UI
+	public static final String STATUS_BAR = "health_power_bar.png";
 	
 	public static BufferedImage GetSpriteAtlas(String fileName) {
 		BufferedImage img = null;
