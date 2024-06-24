@@ -152,47 +152,19 @@ public class Playing extends State implements Statemethods {
     public void mouseClicked(MouseEvent e) {
         if(!gameOver)
             if (e.getButton() == MouseEvent.BUTTON1)
-                player.setAttacking(true);
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        if(!gameOver)
-            if(paused)
-                pauseOverlay.mousePressed(e);
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        if(!gameOver)
-            if(paused)
-                pauseOverlay.mouseReleased(e);
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        if(!gameOver)
-            if(paused)
-                pauseOverlay.mouseMoved(e);
-    }
-
-    public void mouseDragged(MouseEvent e) {
-        if(!gameOver)
-            if(paused)
-                pauseOverlay.mouseDragged(e);
-    }
-
+            player.setAttacking(true);
+        }
+    
     @Override
     public void keyPressed(KeyEvent e) {
         if(gameOver)
             gameOverOverlay.keyPressed(e);
-
-        else
+            else
             switch (e.getKeyCode()) {
             case KeyEvent.VK_A:
-                player.setLeft(true);
+            player.setLeft(true);
                 break;
-            case KeyEvent.VK_D:
+                case KeyEvent.VK_D:
                 player.setRight(true);
                 break;
             case KeyEvent.VK_SPACE:
@@ -207,17 +179,44 @@ public class Playing extends State implements Statemethods {
     @Override
     public void keyReleased(KeyEvent e) {
         if (!gameOver)
-			switch (e.getKeyCode()) {
-			case KeyEvent.VK_A:
-				player.setLeft(false);
-				break;
-			case KeyEvent.VK_D:
-				player.setRight(false);
-				break;
-			case KeyEvent.VK_SPACE:
-				player.setJump(false);
-				break;
-			}
+            switch (e.getKeyCode()) {
+            case KeyEvent.VK_A:
+                player.setLeft(false);
+                break;
+            case KeyEvent.VK_D:
+                player.setRight(false);
+                break;
+            case KeyEvent.VK_SPACE:
+                player.setJump(false);
+                break;
+            }
+    }
+
+    public void mouseDragged(MouseEvent e) {
+        if(!gameOver)
+            if(paused)
+                pauseOverlay.mouseDragged(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        if(!gameOver)
+        if(paused)
+        pauseOverlay.mousePressed(e);
+    }
+    
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        if(!gameOver)
+            if(paused)
+                pauseOverlay.mouseReleased(e);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        if(!gameOver)
+            if(paused)
+                pauseOverlay.mouseMoved(e);
     }
 
     public void unpauseGame() {

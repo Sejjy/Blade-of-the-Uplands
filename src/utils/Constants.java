@@ -16,17 +16,17 @@ public class Constants {
 		public static final int CRABBY_WIDTH_DEFAULT = 72;
 		public static final int CRABBY_HEIGHT_DEFAULT = 32;
 
-		public static final int CRABBY_WIDTH = (int)(CRABBY_WIDTH_DEFAULT * Game.SCALE);
-		public static final int CRABBY_HEIGHT = (int)(CRABBY_HEIGHT_DEFAULT * Game.SCALE);
+		public static final int CRABBY_WIDTH = (int) (CRABBY_WIDTH_DEFAULT * Game.SCALE);
+		public static final int CRABBY_HEIGHT = (int) (CRABBY_HEIGHT_DEFAULT * Game.SCALE);
 
-		public static final int CRABBY_DRAWOFFSET_X = (int)(26 * Game.SCALE);
-		public static final int CRABBY_DRAWOFFSET_Y = (int)(9 * Game.SCALE);
+		public static final int CRABBY_DRAWOFFSET_X = (int) (26 * Game.SCALE);
+		public static final int CRABBY_DRAWOFFSET_Y = (int) (9 * Game.SCALE);
 
 		public static int GetSpriteAmount(int enemy_type, int enemy_state) {
 
-			switch(enemy_type) {
+			switch (enemy_type) {
 			case CRABBY:
-			switch (enemy_state) {
+				switch (enemy_state) {
 				case IDLE:
 					return 9;
 				case RUNNING:
@@ -41,6 +41,7 @@ public class Constants {
 			}
 
 			return 0;
+
 		}
 
 		public static int GetMaxHealth(int enemy_type) {
@@ -59,11 +60,12 @@ public class Constants {
 			default:
 				return 0;
 			}
+
 		}
+
 	}
 
 	public static class Environment {
-
 		// CLOUDS
 		public static final int BIG_CLOUD_WIDTH_DEFAULT = 576;
 		public static final int BIG_CLOUD_HEIGHT_DEFAULT = 324;
@@ -97,7 +99,7 @@ public class Constants {
 		public static final int TREE_WIDTH = (int)(TREE_WIDTH_DEFAULT * Game.SCALE);
 		public static final int TREE_HEIGHT = (int)(TREE_HEIGHT_DEFAULT * Game.SCALE);
 	}
-
+	
 	public static class UI {
 		public static class Buttons {
 			public static final int B_WIDTH_DEFAULT = 140;
@@ -105,16 +107,17 @@ public class Constants {
 
 			public static final int B_WIDTH = (int) (B_WIDTH_DEFAULT * Game.SCALE);
 			public static final int B_HEIGHT = (int) (B_HEIGHT_DEFAULT * Game.SCALE);
-
 		}
+
 		public static class PauseButtons {
 			public static final int SOUND_SIZE_DEFAULT = 42;
-			public static final int SOUND_SIZE = (int)(SOUND_SIZE_DEFAULT * Game.SCALE);
+			public static final int SOUND_SIZE = (int) (SOUND_SIZE_DEFAULT * Game.SCALE);
 		}
 
-		public static class UrmButtons {
+		public static class URMButtons {
 			public static final int URM_DEFAULT_SIZE = 56;
-			public static final int URM_SIZE = (int)(URM_DEFAULT_SIZE * Game.SCALE);
+			public static final int URM_SIZE = (int) (URM_DEFAULT_SIZE * Game.SCALE);
+
 		}
 
 		public static class VolumeButtons {
@@ -122,11 +125,12 @@ public class Constants {
 			public static final int VOLUME_DEFAULT_HEIGHT = 44;
 			public static final int SLIDER_DEFAULT_WIDTH = 215;
 
-			public static final int VOLUME_WIDTH = (int)(VOLUME_DEFAULT_WIDTH * Game.SCALE);
-			public static final int VOLUME_HEIGHT = (int)(VOLUME_DEFAULT_HEIGHT * Game.SCALE);
-			public static final int SLIDER_WIDTH = (int)(SLIDER_DEFAULT_WIDTH * Game.SCALE);
-		}	
+			public static final int VOLUME_WIDTH = (int) (VOLUME_DEFAULT_WIDTH * Game.SCALE);
+			public static final int VOLUME_HEIGHT = (int) (VOLUME_DEFAULT_HEIGHT * Game.SCALE);
+			public static final int SLIDER_WIDTH = (int) (SLIDER_DEFAULT_WIDTH * Game.SCALE);
+		}
 	}
+
 	public static class Directions {
 		public static final int LEFT = 0;
 		public static final int UP = 1;
@@ -145,20 +149,19 @@ public class Constants {
 
 		public static int GetSpriteAmount(int player_action) {
 			switch (player_action) {
-			case RUNNING:
-				return 6;
-			case DEAD:
-				return 5;
-			case ATTACK:
-			case HIT:
-			case IDLE:
-				return 4;
-			case JUMP:
-				return 3;
-			default:
-				return 2;
+				case RUNNING:
+					return 6;
+				case DEAD:
+					return 5;
+				case ATTACK:
+				case HIT:
+				case IDLE:
+					return 4;
+				case JUMP:
+					return 3;
+				default:
+					return 2;
 			}
 		}
 	}
-
 }
