@@ -5,8 +5,8 @@ import static utils.HelpMethods.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.geom.Rectangle2D;
-import java.awt.geom.Rectangle2D.Float;
 import java.awt.image.BufferedImage;
 
 import gamestates.Playing;
@@ -65,6 +65,13 @@ public class Player extends Entity {
 		initAttackBox();
 	}
 
+	public void setSpawn(Point spawn) {
+		this.x = spawn.x;
+		this.y = spawn.y;
+		hitbox.x = x;
+		hitbox.y = y;
+	}
+
 	private void initAttackBox() {
 		attackBox = new Rectangle2D.Float(x, y, (int) (20 * Game.SCALE), (int) (20 * Game.SCALE));
 	}
@@ -109,8 +116,8 @@ public class Player extends Entity {
 
 	public void render(Graphics g, int lvlOffset) {
 		g.drawImage(animations[playerAction][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX, (int) (hitbox.y - yDrawOffset), width * flipW, height, null);
-		drawHitbox(g, lvlOffset);
-		drawAttackBox(g, lvlOffset);
+//		drawHitbox(g, lvlOffset);
+//		drawAttackBox(g, lvlOffset);
 		drawUI(g);
 	}
 
