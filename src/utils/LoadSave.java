@@ -30,7 +30,7 @@ public class LoadSave {
 	public static final String LAND = "bg_land.png";
 	public static final String TREES = "bg_trees.png";
 	
-	public static final String CRABBY_SPRITE = "crabby_sprite.png";
+	public static final String CRABBY_SPRITE = "goblin_sprites.png";
 	public static final String STATUS_BAR = "health_power_bar.png";
 	public static final String COMPLETED_IMG = "completed_sprite.png";
 	public static final String POTION_ATLAS = "potions_sprites.png";

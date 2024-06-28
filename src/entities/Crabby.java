@@ -10,7 +10,7 @@ public class Crabby extends Enemy {
 
 	public Crabby(float x, float y) {
 		super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
-		initHitbox(22, 19);
+		initHitbox(24, 30);
 		initAttackBox(82, 19, 30);
 	}
 

@@ -142,12 +142,12 @@ public class Constants {
 		public static final int HIT = 3;
 		public static final int DEAD = 4;
 
-		public static final int CRABBY_WIDTH_DEFAULT = 72;
-		public static final int CRABBY_HEIGHT_DEFAULT = 32;
+		public static final int CRABBY_WIDTH_DEFAULT = 94;
+		public static final int CRABBY_HEIGHT_DEFAULT = 54;
 		public static final int CRABBY_WIDTH = (int) (CRABBY_WIDTH_DEFAULT * Game.SCALE);
 		public static final int CRABBY_HEIGHT = (int) (CRABBY_HEIGHT_DEFAULT * Game.SCALE);
-		public static final int CRABBY_DRAWOFFSET_X = (int) (26 * Game.SCALE);
-		public static final int CRABBY_DRAWOFFSET_Y = (int) (9 * Game.SCALE);
+		public static final int CRABBY_DRAWOFFSET_X = (int) (35 * Game.SCALE);
+		public static final int CRABBY_DRAWOFFSET_Y = (int) (8 * Game.SCALE);
 
 		public static final int PINKSTAR_WIDTH_DEFAULT = 34;
 		public static final int PINKSTAR_HEIGHT_DEFAULT = 30;
@@ -168,19 +168,25 @@ public class Constants {
 
 			case IDLE: {
 				if (enemy_type == CRABBY)
-					return 9;
+					return 4;
 				else if (enemy_type == PINKSTAR || enemy_type == SHARK)
 					return 8;
 			}
 			case RUNNING:
+				if (enemy_type == CRABBY)
+					return 8;
 				return 6;
 			case ATTACK:
 				if (enemy_type == SHARK)
 					return 8;
+				if (enemy_type == CRABBY)
+					return 5;
 				return 7;
 			case HIT:
 				return 4;
 			case DEAD:
+				if (enemy_type == CRABBY)
+					return 4;
 				return 5;
 			}
 
