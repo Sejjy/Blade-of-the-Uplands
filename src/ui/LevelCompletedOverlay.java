@@ -41,7 +41,6 @@ public class LevelCompletedOverlay {
 	}
 
 	public void draw(Graphics g) {
-		// Added after youtube upload
 		g.setColor(new Color(0, 0, 0, 200));
 		g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
 
@@ -73,11 +72,13 @@ public class LevelCompletedOverlay {
 		if (isIn(menu, e)) {
 			if (menu.isMousePressed()) {
 				playing.resetAll();
-				Gamestate.state = Gamestate.MENU;
+				playing.setGamestate(Gamestate.MENU);
 			}
 		} else if (isIn(next, e))
-			if (next.isMousePressed())
+			if (next.isMousePressed()) {
 				playing.loadNextLevel();
+				playing.getGame().getAudioPlayer().setLevelSong(playing.getLevelManager().getLevelIndex());
+			}
 
 		menu.resetBools();
 		next.resetBools();
