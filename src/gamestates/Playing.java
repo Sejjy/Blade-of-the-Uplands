@@ -48,7 +48,6 @@ public class Playing extends State implements Statemethods {
 	private BufferedImage[] questionImgs, exclamationImgs;
 	private ArrayList<DialogueEffect> dialogEffects = new ArrayList<>();
 
-	private int[] smallCloudsPos;
 	private Random rnd = new Random();
 
 	private boolean gameOver;

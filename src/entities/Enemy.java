@@ -28,7 +28,7 @@ public abstract class Enemy extends Entity {
 
 		maxHealth = GetMaxHealth(enemyType);
 		currentHealth = maxHealth;
-		walkSpeed = Game.SCALE * 0.25f;
+		walkSpeed = Game.SCALE * 0.20f;
 	}
 
 	protected void updateAttackBox() {
@@ -38,10 +38,15 @@ public abstract class Enemy extends Entity {
 
 	protected void updateAttackBoxFlip() {
 		if (walkDir == RIGHT)
-			attackBox.x = hitbox.x + hitbox.width;
+			if (enemyType == SHARK)
+				attackBox.x = hitbox.x + hitbox.width - 48;
+			else
+				attackBox.x = hitbox.x + hitbox.width;
 		else
-			attackBox.x = hitbox.x - attackBoxOffsetX;
-
+			if (enemyType == SHARK)
+				attackBox.x = hitbox.x - attackBoxOffsetX - 20;
+			else
+				attackBox.x = hitbox.x - attackBoxOffsetX;
 		attackBox.y = hitbox.y;
 	}
 
@@ -122,7 +127,7 @@ public abstract class Enemy extends Entity {
 			return absValue <= attackDistance;
 		}
 		case SHARK -> {
-			return absValue <= attackDistance * 2;
+			return absValue <= attackDistance + 16;
 		}
 		}
 		return false;
@@ -203,14 +208,14 @@ public abstract class Enemy extends Entity {
 	}
 
 	public int flipX() {
-		if (walkDir == RIGHT)
+		if (walkDir == LEFT)
 			return width;
 		else
 			return 0;
 	}
 
 	public int flipW() {
-		if (walkDir == RIGHT)
+		if (walkDir == LEFT)
 			return -1;
 		else
 			return 1;

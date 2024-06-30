@@ -1,6 +1,7 @@
 package entities;
 
 import static utils.Constants.EnemyConstants.*;
+import static utils.Constants.EnemyConstants.GetSpriteAmount;
 import static utils.HelpMethods.IsFloor;
 import static utils.Constants.Dialogue.*;
 
@@ -11,13 +12,13 @@ public class Crabby extends Enemy {
 	public Crabby(float x, float y) {
 		super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
 		initHitbox(24, 30);
-		initAttackBox(82, 19, 30);
+		initAttackBox(20, 30, 20);
 	}
 
 	public void update(int[][] lvlData, Playing playing) {
 		updateBehavior(lvlData, playing);
 		updateAnimationTick();
-		updateAttackBox();
+		updateAttackBoxFlip();
 	}
 
 	private void updateBehavior(int[][] lvlData, Playing playing) {

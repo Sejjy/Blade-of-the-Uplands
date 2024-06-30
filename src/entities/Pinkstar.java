@@ -1,6 +1,7 @@
 package entities;
 
 import static utils.Constants.EnemyConstants.*;
+import static utils.Constants.EnemyConstants.GetSpriteAmount;
 import static utils.Constants.Dialogue.*;
 import static utils.HelpMethods.CanMoveHere;
 import static utils.HelpMethods.IsFloor;
@@ -17,12 +18,14 @@ public class Pinkstar extends Enemy {
 
 	public Pinkstar(float x, float y) {
 		super(x, y, PINKSTAR_WIDTH, PINKSTAR_HEIGHT, PINKSTAR);
-		initHitbox(17, 21);
+		initHitbox(20, 30);
+		initAttackBox(20, 30, 0);
 	}
 
 	public void update(int[][] lvlData, Playing playing) {
 		updateBehavior(lvlData, playing);
 		updateAnimationTick();
+		updateAttackBox();
 	}
 
 	private void updateBehavior(int[][] lvlData, Playing playing) {

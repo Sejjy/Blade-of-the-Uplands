@@ -1,9 +1,7 @@
 package entities;
 
-import static utils.Constants.Dialogue.*;
-import static utils.Constants.Directions.LEFT;
 import static utils.Constants.EnemyConstants.*;
-import static utils.HelpMethods.CanMoveHere;
+import static utils.Constants.EnemyConstants.GetSpriteAmount;
 import static utils.HelpMethods.IsFloor;
 
 import gamestates.Playing;
@@ -12,8 +10,8 @@ public class Shark extends Enemy {
 
 	public Shark(float x, float y) {
 		super(x, y, SHARK_WIDTH, SHARK_HEIGHT, SHARK);
-		initHitbox(18, 22);
-		initAttackBox(20, 20, 20);
+		initHitbox(24, 31);
+		initAttackBox(54, 31, 20);
 	}
 
 	public void update(int[][] lvlData, Playing playing) {
@@ -48,12 +46,8 @@ public class Shark extends Enemy {
 			case ATTACK:
 				if (aniIndex == 0)
 					attackChecked = false;
-				else if (aniIndex == 3) {
-					if (!attackChecked)
-						checkPlayerHit(attackBox, playing.getPlayer());
-					attackMove(lvlData, playing);
-				}
-
+				if (aniIndex == 3 && !attackChecked)
+					checkPlayerHit(attackBox, playing.getPlayer());
 				break;
 	 		case HIT:
 				if (aniIndex <= GetSpriteAmount(enemyType, state) - 2)
@@ -64,20 +58,20 @@ public class Shark extends Enemy {
 		}
 	}
 
-	protected void attackMove(int[][] lvlData, Playing playing) {
-		float xSpeed = 0;
+	// protected void attackMove(int[][] lvlData, Playing playing) {
+	// 	float xSpeed = 0;
 
-		if (walkDir == LEFT)
-			xSpeed = -walkSpeed;
-		else
-			xSpeed = walkSpeed;
+	// 	if (walkDir == LEFT)
+	// 		xSpeed = -walkSpeed;
+	// 	else
+	// 		xSpeed = walkSpeed;
 
-		if (CanMoveHere(hitbox.x + xSpeed * 4, hitbox.y, hitbox.width, hitbox.height, lvlData))
-			if (IsFloor(hitbox, xSpeed * 4, lvlData)) {
-				hitbox.x += xSpeed * 4;
-				return;
-			}
-		newState(IDLE);
-		playing.addDialogue((int) hitbox.x, (int) hitbox.y, EXCLAMATION);
-	}
+	// 	if (CanMoveHere(hitbox.x + xSpeed * 4, hitbox.y, hitbox.width, hitbox.height, lvlData))
+	// 		if (IsFloor(hitbox, xSpeed * 4, lvlData)) {
+	// 			hitbox.x += xSpeed * 4;
+	// 			return;
+	// 		}
+	// 	newState(IDLE);
+	// 	playing.addDialogue((int) hitbox.x, (int) hitbox.y, EXCLAMATION);
+	// }
 }

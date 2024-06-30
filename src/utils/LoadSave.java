@@ -30,7 +30,7 @@ public class LoadSave {
 	public static final String LAND = "bg_land.png";
 	public static final String TREES = "bg_trees.png";
 	
-	public static final String CRABBY_SPRITE = "goblin_sprites.png";
+	public static final String CRABBY_SPRITE = "mushroom_sprites.png";
 	public static final String STATUS_BAR = "health_power_bar.png";
 	public static final String COMPLETED_IMG = "completed_sprite.png";
 	public static final String POTION_ATLAS = "potions_sprites.png";
@@ -40,10 +40,10 @@ public class LoadSave {
 	public static final String CANNON_BALL = "ball.png";
 	public static final String DEATH_SCREEN = "death_screen.png";
 	public static final String OPTIONS_MENU = "options_background.png";
-	public static final String PINKSTAR_ATLAS = "pinkstar_atlas.png";
+	public static final String PINKSTAR_ATLAS = "eye_sprites.png";
 	public static final String QUESTION_ATLAS = "question_atlas.png";
 	public static final String EXCLAMATION_ATLAS = "exclamation_atlas.png";
-	public static final String SHARK_ATLAS = "shark_atlas.png";
+	public static final String SHARK_ATLAS = "skeleton_sprites.png";
 	public static final String CREDITS = "credits_list.png";
 	public static final String GRASS_ATLAS = "grass_atlas.png";
 	public static final String TREE_ONE_ATLAS = "tree_one_atlas.png";
