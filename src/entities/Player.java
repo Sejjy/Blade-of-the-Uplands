@@ -233,11 +233,11 @@ public class Player extends Entity {
 		g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
 
 		// Health bar
-		g.setColor(Color.red);
+		g.setColor(new Color(193, 0, 4));
 		g.fillRect(healthBarXStart + statusBarX, healthBarYStart + statusBarY, healthWidth, healthBarHeight);
 
 		// Power Bar
-		g.setColor(Color.yellow);
+		g.setColor(new Color(238, 186, 119));
 		g.fillRect(powerBarXStart + statusBarX, powerBarYStart + statusBarY, powerWidth, powerBarHeight);
 	}
 

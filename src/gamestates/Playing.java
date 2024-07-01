@@ -23,6 +23,7 @@ import effects.DialogueEffect;
 import effects.Rain;
 
 import static utils.Constants.Environment.*;
+// import static main.Game.GAME_WIDTH;
 import static utils.Constants.Dialogue.*;
 
 public class Playing extends State implements Statemethods {
@@ -40,8 +41,8 @@ public class Playing extends State implements Statemethods {
 	private boolean paused = false;
 
 	private int xLvlOffset;
-	private int leftBorder = (int) (0.25 * Game.GAME_WIDTH);
-	private int rightBorder = (int) (0.75 * Game.GAME_WIDTH);
+	private int leftBorder = (int) (0.40 * Game.GAME_WIDTH);
+	private int rightBorder = (int) (0.60 * Game.GAME_WIDTH);
 	private int maxLvlOffsetX;
 
 	private BufferedImage backgroundImg, bigCloud, medCloud, smallCloud, grassLand, trees, shipImgs[];
@@ -66,7 +67,7 @@ public class Playing extends State implements Statemethods {
 	// you want
 	// it.
 
-	private boolean drawShip = true;
+	private boolean drawShip = false;
 	private int shipAni, shipTick, shipDir = 1;
 	private float shipHeightDelta, shipHeightChange = 0.05f * Game.SCALE;
 
@@ -252,6 +253,7 @@ public class Playing extends State implements Statemethods {
 
 		if (drawShip)
 			g.drawImage(shipImgs[shipAni], (int) (100 * Game.SCALE) - xLvlOffset, (int) ((288 * Game.SCALE) + shipHeightDelta), (int) (78 * Game.SCALE), (int) (72 * Game.SCALE), null);
+		//	g.drawImage(shipImgs[shipAni], (int) (100 * Game.SCALE) - xLvlOffset, (int) ((288 * Game.SCALE) + shipHeightDelta), (int) (78 * Game.SCALE), (int) (72 * Game.SCALE), null);
 
 		levelManager.draw(g, xLvlOffset);
 		objectManager.draw(g, xLvlOffset);
