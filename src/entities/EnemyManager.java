@@ -59,8 +59,8 @@ public class EnemyManager {
 			if (s.isActive()) {
 				g.drawImage(sharkArr[s.getState()][s.getAniIndex()], (int) s.getHitbox().x - xLvlOffset - SHARK_DRAWOFFSET_X + s.flipX(),
 						(int) s.getHitbox().y - SHARK_DRAWOFFSET_Y + (int) s.getPushDrawOffset(), SHARK_WIDTH * s.flipW(), SHARK_HEIGHT, null);
-				s.drawHitbox(g, xLvlOffset);
-				s.drawAttackBox(g, xLvlOffset);
+				// s.drawHitbox(g, xLvlOffset);
+				// s.drawAttackBox(g, xLvlOffset);
 			}
 	}
 
@@ -69,8 +69,8 @@ public class EnemyManager {
 			if (p.isActive()) {
 				g.drawImage(pinkstarArr[p.getState()][p.getAniIndex()], (int) p.getHitbox().x - xLvlOffset - PINKSTAR_DRAWOFFSET_X + p.flipX(),
 						(int) p.getHitbox().y - PINKSTAR_DRAWOFFSET_Y + (int) p.getPushDrawOffset(), PINKSTAR_WIDTH * p.flipW(), PINKSTAR_HEIGHT, null);
-				p.drawHitbox(g, xLvlOffset);
-				p.drawAttackBox(g, xLvlOffset);
+				// p.drawHitbox(g, xLvlOffset);
+				// p.drawAttackBox(g, xLvlOffset);
 			}
 	}
 
@@ -81,8 +81,8 @@ public class EnemyManager {
 				g.drawImage(crabbyArr[c.getState()][c.getAniIndex()], (int) c.getHitbox().x - xLvlOffset - CRABBY_DRAWOFFSET_X + c.flipX(),
 						(int) c.getHitbox().y - CRABBY_DRAWOFFSET_Y + (int) c.getPushDrawOffset(), CRABBY_WIDTH * c.flipW(), CRABBY_HEIGHT, null);
 
-				c.drawHitbox(g, xLvlOffset);
-				c.drawAttackBox(g, xLvlOffset);
+				// c.drawHitbox(g, xLvlOffset);
+				// c.drawAttackBox(g, xLvlOffset);
 			}
 
 	}

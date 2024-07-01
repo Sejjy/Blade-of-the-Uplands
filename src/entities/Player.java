@@ -36,15 +36,15 @@ public class Player extends Entity {
 	private int statusBarX = (int) (10 * Game.SCALE);
 	private int statusBarY = (int) (10 * Game.SCALE);
 
-	private int healthBarWidth = (int) (150 * Game.SCALE);
-	private int healthBarHeight = (int) (4 * Game.SCALE);
-	private int healthBarXStart = (int) (34 * Game.SCALE);
-	private int healthBarYStart = (int) (14 * Game.SCALE);
+	private int healthBarWidth = (int) (135 * Game.SCALE);
+	private int healthBarHeight = (int) (3 * Game.SCALE);
+	private int healthBarXStart = (int) (48 * Game.SCALE);
+	private int healthBarYStart = (int) (15 * Game.SCALE);
 	private int healthWidth = healthBarWidth;
 
-	private int powerBarWidth = (int) (104 * Game.SCALE);
-	private int powerBarHeight = (int) (2 * Game.SCALE);
-	private int powerBarXStart = (int) (44 * Game.SCALE);
+	private int powerBarWidth = (int) (106 * Game.SCALE);
+	private int powerBarHeight = (int) (3 * Game.SCALE);
+	private int powerBarXStart = (int) (61 * Game.SCALE);
 	private int powerBarYStart = (int) (34 * Game.SCALE);
 	private int powerWidth = powerBarWidth;
 	private int powerMaxValue = 200;
@@ -60,14 +60,14 @@ public class Player extends Entity {
 
 	private boolean powerAttackActive;
 	private int powerAttackTick;
-	private int powerGrowSpeed = 15;
+	private int powerGrowSpeed = 20;
 	private int powerGrowTick;
 
 	public Player(float x, float y, int width, int height, Playing playing) {
 		super(x, y, width, height);
 		this.playing = playing;
 		this.state = IDLE;
-		this.maxHealth = 1000;
+		this.maxHealth = 100;
 		this.currentHealth = maxHealth;
 		this.walkSpeed = Game.SCALE * 1.0f;
 		loadAnimations();
@@ -223,8 +223,8 @@ public class Player extends Entity {
 
 	public void render(Graphics g, int lvlOffset) {
 		g.drawImage(animations[state][aniIndex], (int) (hitbox.x - xDrawOffset) - lvlOffset + flipX, (int) (hitbox.y - yDrawOffset + (int) (pushDrawOffset)), width * flipW, height, null);
-		drawHitbox(g, lvlOffset);
-		drawAttackBox(g, lvlOffset);
+		// drawHitbox(g, lvlOffset);
+		// drawAttackBox(g, lvlOffset);
 		drawUI(g);
 	}
 

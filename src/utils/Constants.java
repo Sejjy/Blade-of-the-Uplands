@@ -162,6 +162,17 @@ public class Constants {
 		public static final int SHARK_HEIGHT = (int) (SHARK_HEIGHT_DEFAULT * Game.SCALE);
 		public static final int SHARK_DRAWOFFSET_X = (int) (55 * Game.SCALE);
 		public static final int SHARK_DRAWOFFSET_Y = (int) (33 * Game.SCALE);
+		
+		// CREDITS
+		public static final int PINKSTAR_WIDTH_CRED = 94;
+		public static final int PINKSTAR_HEIGHT_CRED = 54;
+		public static final int PINKSTAR_WCRED = (int) (PINKSTAR_WIDTH_CRED * Game.SCALE);
+		public static final int PINKSTAR_WHEIGHT = (int) (PINKSTAR_HEIGHT_CRED * Game.SCALE);
+
+		public static final int SHARK_WIDTH_CRED = 134;
+		public static final int SHARK_HEIGHT_CRED = 68;
+		public static final int SHARK_WCRED = (int) (SHARK_WIDTH_CRED * Game.SCALE);
+		public static final int SHARK_HCRED = (int) (SHARK_HEIGHT_CRED * Game.SCALE);
 
 		public static int GetSpriteAmount(int enemy_type, int enemy_state) {
 			switch (enemy_state) {
@@ -255,7 +266,7 @@ public class Constants {
 
 	public static class UI {
 		public static class Buttons {
-			public static final int B_WIDTH_DEFAULT = 140;
+			public static final int B_WIDTH_DEFAULT = 144;
 			public static final int B_HEIGHT_DEFAULT = 56;
 			public static final int B_WIDTH = (int) (B_WIDTH_DEFAULT * Game.SCALE);
 			public static final int B_HEIGHT = (int) (B_HEIGHT_DEFAULT * Game.SCALE);
@@ -279,7 +290,7 @@ public class Constants {
 
 			public static final int VOLUME_WIDTH = (int) (VOLUME_DEFAULT_WIDTH * Game.SCALE);
 			public static final int VOLUME_HEIGHT = (int) (VOLUME_DEFAULT_HEIGHT * Game.SCALE);
-			public static final int SLIDER_WIDTH = (int) (SLIDER_DEFAULT_WIDTH * Game.SCALE);
+			public static final int SLIDER_WIDTH = (int) (SLIDER_DEFAULT_WIDTH * Game.SCALE - 33);
 		}
 	}
 
@@ -298,9 +309,11 @@ public class Constants {
 		public static final int HIT = 4;
 		public static final int ATTACK = 5;
 		public static final int DEAD = 6;
+		public static final int POWER_ATTACK = 7;
 
 		public static int GetSpriteAmount(int player_action) {
 			switch (player_action) {
+			case POWER_ATTACK:
 			case RUNNING:
 				return 6;
 			case DEAD:

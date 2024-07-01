@@ -1,9 +1,9 @@
 package main;
 
 import java.awt.Graphics;
-import java.awt.Toolkit;
+// import java.awt.Toolkit;
 import audio.AudioPlayer;
-import gamestates.Credits;
+// import gamestates.Credits;
 import gamestates.GameOptions;
 import gamestates.Gamestate;
 import gamestates.Menu;
@@ -19,7 +19,7 @@ public class Game implements Runnable {
 
 	private Playing playing;
 	private Menu menu;
-	private Credits credits;
+	// private Credits credits;
 	private GameOptions gameOptions;
 	private AudioOptions audioOptions;
 	private AudioPlayer audioPlayer;
@@ -48,7 +48,7 @@ public class Game implements Runnable {
 		audioPlayer = new AudioPlayer();
 		menu = new Menu(this);
 		playing = new Playing(this);
-		credits = new Credits(this);
+		// credits = new Credits(this);
 		gameOptions = new GameOptions(this);
 	}
 
@@ -62,7 +62,7 @@ public class Game implements Runnable {
 		case MENU -> menu.update();
 		case PLAYING -> playing.update();
 		case OPTIONS -> gameOptions.update();
-		case CREDITS -> credits.update();
+		// case CREDITS -> credits.update();
 		case QUIT -> System.exit(0);
 		}
 	}
@@ -73,7 +73,7 @@ public class Game implements Runnable {
 		case MENU -> menu.draw(g);
 		case PLAYING -> playing.draw(g);
 		case OPTIONS -> gameOptions.draw(g);
-		case CREDITS -> credits.draw(g);
+		// case CREDITS -> credits.draw(g);
 		}
 	}
 
@@ -107,7 +107,7 @@ public void run() {
 
         if (deltaF >= 1) {
             gamePanel.repaint();
-            Toolkit.getDefaultToolkit().sync();  // Synchronize the graphics state on Linux systems
+            // Toolkit.getDefaultToolkit().sync();  // Synchronize the graphics state on Linux systems
             frames++;
             deltaF--;
         }
@@ -136,9 +136,9 @@ public void run() {
 		return playing;
 	}
 
-	public Credits getCredits() {
-		return credits;
-	}
+	// public Credits getCredits() {
+	// 	return credits;
+	// }
 
 	public GameOptions getGameOptions() {
 		return gameOptions;

@@ -149,7 +149,7 @@ public class ObjectManager {
 			if (p.isActive()) {
 				p.updatePos();
 				if (p.getHitbox().intersects(player.getHitbox())) {
-					player.changeHealth(-25);
+					player.changeHealth(-10);
 					p.setActive(false);
 				} else if (IsProjectileHittingLevel(p, lvlData))
 					p.setActive(false);
