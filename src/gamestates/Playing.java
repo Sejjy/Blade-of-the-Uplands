@@ -45,7 +45,7 @@ public class Playing extends State implements Statemethods {
 	private int rightBorder = (int) (0.60 * Game.GAME_WIDTH);
 	private int maxLvlOffsetX;
 
-	private BufferedImage backgroundImg, bigCloud, medCloud, smallCloud, grassLand, trees, shipImgs[];
+	private BufferedImage backgroundImg, bigCloud, medCloud, smallCloud, grassLand, trees, ship;
 	private BufferedImage[] questionImgs, exclamationImgs;
 	private ArrayList<DialogueEffect> dialogEffects = new ArrayList<>();
 
@@ -67,9 +67,9 @@ public class Playing extends State implements Statemethods {
 	// you want
 	// it.
 
-	private boolean drawShip = false;
-	private int shipAni, shipTick, shipDir = 1;
-	private float shipHeightDelta, shipHeightChange = 0.05f * Game.SCALE;
+	private boolean drawShip = true;
+	// private int shipAni, shipTick, shipDir = 1;
+	// private float shipHeightDelta, shipHeightChange = 0.05f * Game.SCALE;
 
 	public Playing(Game game) {
 		super(game);
@@ -84,10 +84,11 @@ public class Playing extends State implements Statemethods {
         grassLand = LoadSave.GetSpriteAtlas(LoadSave.LAND);
         trees = LoadSave.GetSpriteAtlas(LoadSave.TREES);
 
-		shipImgs = new BufferedImage[4];
-		BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.SHIP);
-		for (int i = 0; i < shipImgs.length; i++)
-			shipImgs[i] = temp.getSubimage(i * 78, 0, 78, 72);
+		// shipImgs = new BufferedImage[4];
+		// BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.SHIP);
+		ship = LoadSave.GetSpriteAtlas(LoadSave.SHIP);
+		// for (int i = 0; i < shipImgs.length; i++)
+		// 	shipImgs[i] = temp.getSubimage(i * 78, 0, 78, 72);
 
 		loadDialogue();
 		calcLvlOffset();
@@ -165,8 +166,10 @@ public class Playing extends State implements Statemethods {
 			pauseOverlay.update();
 		else if (lvlCompleted)
 			levelCompletedOverlay.update();
-		else if (gameCompleted)
+		else if (gameCompleted){
 			gameCompletedOverlay.update();
+			drawShip = false;
+		}
 		else if (gameOver)
 			gameOverOverlay.update();
 		else if (playerDying)
@@ -180,29 +183,29 @@ public class Playing extends State implements Statemethods {
 			player.update();
 			enemyManager.update(levelManager.getCurrentLevel().getLevelData());
 			checkCloseToBorder();
-			if (drawShip)
-				updateShipAni();
+			// if (drawShip)
+			// 	updateShipAni();
 		}
 	}
 
-	private void updateShipAni() {
-		shipTick++;
-		if (shipTick >= 35) {
-			shipTick = 0;
-			shipAni++;
-			if (shipAni >= 4)
-				shipAni = 0;
-		}
+	// private void updateShipAni() {
+	// 	shipTick++;
+	// 	if (shipTick >= 35) {
+	// 		shipTick = 0;
+	// 		shipAni++;
+	// 		if (shipAni >= 4)
+	// 			shipAni = 0;
+	// 	}
 
-		shipHeightDelta += shipHeightChange * shipDir;
-		shipHeightDelta = Math.max(Math.min(10 * Game.SCALE, shipHeightDelta), 0);
+	// 	shipHeightDelta += shipHeightChange * shipDir;
+	// 	shipHeightDelta = Math.max(Math.min(10 * Game.SCALE, shipHeightDelta), 0);
 
-		if (shipHeightDelta == 0)
-			shipDir = 1;
-		else if (shipHeightDelta == 10 * Game.SCALE)
-			shipDir = -1;
+	// 	if (shipHeightDelta == 0)
+	// 		shipDir = 1;
+	// 	else if (shipHeightDelta == 10 * Game.SCALE)
+	// 		shipDir = -1;
 
-	}
+	// }
 
 	private void updateDialogue() {
 		for (DialogueEffect de : dialogEffects)
@@ -245,35 +248,40 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void draw(Graphics g) {
-		g.drawImage(backgroundImg, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
+    g.drawImage(backgroundImg, 0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT, null);
 
-		drawBackground(g);
-		if (drawRain)
-			rain.draw(g, xLvlOffset);
+    drawBackground(g);
 
-		if (drawShip)
-			g.drawImage(shipImgs[shipAni], (int) (100 * Game.SCALE) - xLvlOffset, (int) ((288 * Game.SCALE) + shipHeightDelta), (int) (78 * Game.SCALE), (int) (72 * Game.SCALE), null);
-		//	g.drawImage(shipImgs[shipAni], (int) (100 * Game.SCALE) - xLvlOffset, (int) ((288 * Game.SCALE) + shipHeightDelta), (int) (78 * Game.SCALE), (int) (72 * Game.SCALE), null);
+    if (drawRain) {
+        rain.draw(g, xLvlOffset);
+    }
 
-		levelManager.draw(g, xLvlOffset);
-		objectManager.draw(g, xLvlOffset);
-		enemyManager.draw(g, xLvlOffset);
-		player.render(g, xLvlOffset);
-		objectManager.drawBackgroundTrees(g, xLvlOffset);
-		drawDialogue(g, xLvlOffset);
+    levelManager.draw(g, xLvlOffset);
+    objectManager.draw(g, xLvlOffset);
+    enemyManager.draw(g, xLvlOffset);
 
-		if (paused) {
-			g.setColor(new Color(0, 0, 0, 150));
-			g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
-			pauseOverlay.draw(g);
-		} else if (gameOver)
-			gameOverOverlay.draw(g);
-		else if (lvlCompleted)
-			levelCompletedOverlay.draw(g);
-		else if (gameCompleted)
-			gameCompletedOverlay.draw(g);
+	objectManager.drawBackgroundTrees(g, xLvlOffset);
+	drawDialogue(g, xLvlOffset);
 
-	}
+    // Draw the ship above everything except the player
+    if (drawShip) {
+        g.drawImage(ship, Game.GAME_WIDTH / 2 - 300, (int) (25 * Game.SCALE), (int) (288 * Game.SCALE), (int) (384 * Game.SCALE), null);
+    }
+
+    player.render(g, xLvlOffset);
+
+    if (paused) {
+        g.setColor(new Color(0, 0, 0, 150));
+        g.fillRect(0, 0, Game.GAME_WIDTH, Game.GAME_HEIGHT);
+        pauseOverlay.draw(g);
+    } else if (gameOver) {
+        gameOverOverlay.draw(g);
+    } else if (lvlCompleted) {
+        levelCompletedOverlay.draw(g);
+    } else if (gameCompleted) {
+        gameCompletedOverlay.draw(g);
+    }
+}
 
 	private void drawBackground(Graphics g) {
         // CLOUDS
@@ -311,6 +319,7 @@ public class Playing extends State implements Statemethods {
 		lvlCompleted = false;
 		playerDying = false;
 		drawRain = false;
+		// drawShip = true;
 
 		setDrawRainBoolean();
 
@@ -348,6 +357,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		// drawShip = false;
 		if (!gameOver) {
 			if (e.getButton() == MouseEvent.BUTTON1)
 				player.setAttacking(true);
@@ -358,6 +368,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		drawShip = false;
 		if (!gameOver && !gameCompleted && !lvlCompleted)
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -377,6 +388,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		drawShip = false;
 		if (!gameOver && !gameCompleted && !lvlCompleted)
 			switch (e.getKeyCode()) {
 			case KeyEvent.VK_A:
@@ -392,6 +404,7 @@ public class Playing extends State implements Statemethods {
 	}
 
 	public void mouseDragged(MouseEvent e) {
+		// drawShip = false;
 		if (!gameOver && !gameCompleted && !lvlCompleted)
 			if (paused)
 				pauseOverlay.mouseDragged(e);
@@ -399,6 +412,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		// drawShip = false;
 		if (gameOver)
 			gameOverOverlay.mousePressed(e);
 		else if (paused)
@@ -412,6 +426,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		// drawShip = false;
 		if (gameOver)
 			gameOverOverlay.mouseReleased(e);
 		else if (paused)
@@ -424,6 +439,7 @@ public class Playing extends State implements Statemethods {
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
+		// drawShip = false;
 		if (gameOver)
 			gameOverOverlay.mouseMoved(e);
 		else if (paused)

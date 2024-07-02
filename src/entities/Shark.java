@@ -3,6 +3,9 @@ package entities;
 import static utils.Constants.EnemyConstants.*;
 import static utils.Constants.EnemyConstants.GetSpriteAmount;
 import static utils.HelpMethods.IsFloor;
+import static utils.HelpMethods.CanMoveHere;
+import static utils.Constants.Directions.*;
+import static utils.Constants.Dialogue.*;
 
 import gamestates.Playing;
 
@@ -58,20 +61,20 @@ public class Shark extends Enemy {
 		}
 	}
 
-	// protected void attackMove(int[][] lvlData, Playing playing) {
-	// 	float xSpeed = 0;
+	protected void attackMove(int[][] lvlData, Playing playing) {
+		float xSpeed = 0;
 
-	// 	if (walkDir == LEFT)
-	// 		xSpeed = -walkSpeed;
-	// 	else
-	// 		xSpeed = walkSpeed;
+		if (walkDir == LEFT)
+			xSpeed = -walkSpeed;
+		else
+			xSpeed = walkSpeed;
 
-	// 	if (CanMoveHere(hitbox.x + xSpeed * 4, hitbox.y, hitbox.width, hitbox.height, lvlData))
-	// 		if (IsFloor(hitbox, xSpeed * 4, lvlData)) {
-	// 			hitbox.x += xSpeed * 4;
-	// 			return;
-	// 		}
-	// 	newState(IDLE);
-	// 	playing.addDialogue((int) hitbox.x, (int) hitbox.y, EXCLAMATION);
-	// }
+		if (CanMoveHere(hitbox.x + xSpeed * 4, hitbox.y, hitbox.width, hitbox.height, lvlData))
+			if (IsFloor(hitbox, xSpeed * 4, lvlData)) {
+				hitbox.x += xSpeed * 4;
+				return;
+			}
+		newState(IDLE);
+		playing.addDialogue((int) hitbox.x, (int) hitbox.y, EXCLAMATION);
+	}
 }

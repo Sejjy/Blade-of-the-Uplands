@@ -126,6 +126,9 @@ public abstract class Enemy extends Entity {
 		case CRABBY -> {
 			return absValue <= attackDistance;
 		}
+		case PINKSTAR -> {
+			return absValue <= attackDistance;
+		}
 		case SHARK -> {
 			return absValue <= attackDistance + 16;
 		}

@@ -61,12 +61,12 @@ public class LoadSave {
 	public static final String RAIN_PARTICLE = "rain_particle.png";
 	public static final String WATER_TOP = "water_atlas_animation.png";
 	public static final String WATER_BOTTOM = "water.png";
-	public static final String SHIP = "ship.png";
+	public static final String SHIP = "tutorial.png";
 
 	// CREDITS
 	public static final String PINKSTAR_CREDS = "eye_credits.png";
 	public static final String SHARK_CREDS = "skeleton_credits.png";
-	public static final String CREDITS = "credits_list.png";
+	// public static final String CREDITS = "credits_list.png";
 	
 	public static BufferedImage GetSpriteAtlas(String fileName) {
 		BufferedImage img = null;

@@ -45,7 +45,7 @@ public class Constants {
 		public static final int TREE_ONE = 7;
 		public static final int TREE_TWO = 8;
 		public static final int TREE_THREE = 9;
-
+  
 		public static final int RED_POTION_VALUE = 15;
 		public static final int BLUE_POTION_VALUE = 10;
 
