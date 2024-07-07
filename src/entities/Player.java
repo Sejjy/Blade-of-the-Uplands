@@ -60,7 +60,7 @@ public class Player extends Entity {
 
 	private boolean powerAttackActive;
 	private int powerAttackTick;
-	private int powerGrowSpeed = 20;
+	private int powerGrowSpeed = 40;
 	private int powerGrowTick;
 
 	public Player(float x, float y, int width, int height, Playing playing) {

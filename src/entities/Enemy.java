@@ -40,6 +40,8 @@ public abstract class Enemy extends Entity {
 		if (walkDir == RIGHT)
 			if (enemyType == SHARK)
 				attackBox.x = hitbox.x + hitbox.width - 48;
+			else if (enemyType == CRABBY)
+				attackBox.x = hitbox.x - attackBoxOffsetX + 62;
 			else
 				attackBox.x = hitbox.x + hitbox.width;
 		else
@@ -130,7 +132,7 @@ public abstract class Enemy extends Entity {
 			return absValue <= attackDistance;
 		}
 		case SHARK -> {
-			return absValue <= attackDistance + 16;
+			return absValue <= attackDistance + 30;
 		}
 		}
 		return false;

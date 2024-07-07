@@ -12,7 +12,7 @@ public class Crabby extends Enemy {
 	public Crabby(float x, float y) {
 		super(x, y, CRABBY_WIDTH, CRABBY_HEIGHT, CRABBY);
 		initHitbox(24, 30);
-		initAttackBox(20, 30, 20);
+		initAttackBox(33, 30, 20);
 	}
 
 	public void update(int[][] lvlData, Playing playing) {

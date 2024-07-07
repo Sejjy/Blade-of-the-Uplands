@@ -23,7 +23,7 @@ public class AudioOptions {
 	}
 
 	private void createVolumeButton() {
-		int vX = (int) (320 * Game.SCALE);
+		int vX = (int) (317 * Game.SCALE);
 		int vY = (int) (260 * Game.SCALE);
 		volumeButton = new VolumeButton(vX, vY, SLIDER_WIDTH, VOLUME_HEIGHT);
 	}

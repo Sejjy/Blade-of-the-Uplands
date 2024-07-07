@@ -1,11 +1,11 @@
 package entities;
 
+import static utils.Constants.Dialogue.*;
+import static utils.Constants.Directions.LEFT;
 import static utils.Constants.EnemyConstants.*;
 import static utils.Constants.EnemyConstants.GetSpriteAmount;
-import static utils.HelpMethods.IsFloor;
 import static utils.HelpMethods.CanMoveHere;
-import static utils.Constants.Directions.*;
-import static utils.Constants.Dialogue.*;
+import static utils.HelpMethods.IsFloor;
 
 import gamestates.Playing;
 
@@ -49,8 +49,12 @@ public class Shark extends Enemy {
 			case ATTACK:
 				if (aniIndex == 0)
 					attackChecked = false;
-				if (aniIndex == 3 && !attackChecked)
-					checkPlayerHit(attackBox, playing.getPlayer());
+				else if (aniIndex == 3) {
+					if (!attackChecked)
+						checkPlayerHit(attackBox, playing.getPlayer());
+					attackMove(lvlData, playing);
+				}
+
 				break;
 	 		case HIT:
 				if (aniIndex <= GetSpriteAmount(enemyType, state) - 2)
@@ -69,9 +73,12 @@ public class Shark extends Enemy {
 		else
 			xSpeed = walkSpeed;
 
-		if (CanMoveHere(hitbox.x + xSpeed * 4, hitbox.y, hitbox.width, hitbox.height, lvlData))
-			if (IsFloor(hitbox, xSpeed * 4, lvlData)) {
-				hitbox.x += xSpeed * 4;
+		if (state == ATTACK)
+			xSpeed *= 2;
+			
+		if (CanMoveHere(hitbox.x + xSpeed * 2, hitbox.y, hitbox.width, hitbox.height, lvlData))
+			if (IsFloor(hitbox, xSpeed * 2, lvlData)) {
+				hitbox.x += xSpeed * 2;
 				return;
 			}
 		newState(IDLE);

@@ -375,7 +375,6 @@ public class Playing extends State implements Statemethods {
 				player.setLeft(true);
 				break;
 			case KeyEvent.VK_D:
-
 				player.setRight(true);
 				break;
 			case KeyEvent.VK_SPACE:

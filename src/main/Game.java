@@ -107,7 +107,7 @@ public void run() {
 
         if (deltaF >= 1) {
             gamePanel.repaint();
-            // Toolkit.getDefaultToolkit().sync();  // Synchronize the graphics state on Linux systems
+            // Toolkit.getDefaultToolkit().sync();
             frames++;
             deltaF--;
         }
