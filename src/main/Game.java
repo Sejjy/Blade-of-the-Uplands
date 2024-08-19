@@ -1,14 +1,14 @@
 package main;
 
 import java.awt.Graphics;
-// import java.awt.Toolkit;
+// import java.awt.Toolkit; // for linux
 import audio.AudioPlayer;
 // import gamestates.Credits;
 import gamestates.GameOptions;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
-import ui.AudioOptions;
+import ui.AudioOptions; 
 
 public class Game implements Runnable {
 
@@ -107,7 +107,7 @@ public void run() {
 
         if (deltaF >= 1) {
             gamePanel.repaint();
-            // Toolkit.getDefaultToolkit().sync();
+            //Toolkit.getDefaultToolkit().sync(); // for linux
             frames++;
             deltaF--;
         }
