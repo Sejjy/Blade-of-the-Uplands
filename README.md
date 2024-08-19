@@ -10,28 +10,11 @@ This is a simple platformer game developed as part of a school project. The game
 - Character movement and attacking
 - Obstacles, collectibles, and monsters
 
-## Credits
-
-- Special thanks to KaarinGaming for providing the base code and tutorial that helped shape this project.
-
 ## Preview
 
 ![Main Menu](/preview/main-menu.png)
 ![Level One](/preview/level-one.png)
 
-## Installation
+## Credits
 
-To run this game, you need to have [Java](https://www.java.com) installed on your machine. Follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Sejjy/Blade-of-the-Uplands.git
-
-2. Navigate to the project directory:
-   ```bash
-   cd Blade-of-the-Uplands
-
-3. Compile and run the game:
-   ```bash
-    javac Game.java
-    java Game
+- Special thanks to KaarinGaming for providing the base code and tutorial that helped shape this project.
