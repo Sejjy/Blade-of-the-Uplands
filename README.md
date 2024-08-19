@@ -8,7 +8,7 @@ This is a simple platformer game developed as part of a school project. The game
 
 - Basic platformer gameplay mechanics
 - Character movement and attacking
-- Obstacles and collectibles
+- Obstacles, collectibles, and monsters
 
 ## Credits
 
