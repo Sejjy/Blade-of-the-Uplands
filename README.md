@@ -2,7 +2,7 @@
 
 ## Overview
 
-Blade of the Uplands is a simple platformer game developed as part of a school project. It showcases fundamental platformer mechanics and serves as a demonstration of basic game development principles. The game is based on KaarinGaming's [Platformer Tutorial](https://github.com/KaarinGaming/PlatformerTutorial.git) repository.
+Blade of the Uplands is a simple platformer game developed as part of a school project. It showcases fundamental platformer mechanics and serves as a demonstration of basic game development principles. The game is based on KaarinGaming's [PlatformerTutorial](https://github.com/KaarinGaming/PlatformerTutorial.git) repository.
 
 ## Features
 
