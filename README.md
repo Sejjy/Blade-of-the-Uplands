@@ -2,13 +2,13 @@
 
 ## Overview
 
-This is a simple platformer game developed as part of a school project. The game is primarily based on KaarinGaming's [Platformer Tutorial](https://github.com/KaarinGaming/PlatformerTutorial.git) repository. It showcases fundamental platformer mechanics and serves as a demonstration of basic game development principles.
+Blade of the Uplands is a simple platformer game developed as part of a school project. It showcases fundamental platformer mechanics and serves as a demonstration of basic game development principles. The game is based on KaarinGaming's [Platformer Tutorial](https://github.com/KaarinGaming/PlatformerTutorial.git) repository.
 
 ## Features
 
-- Basic platformer gameplay mechanics
-- Character movement and attacking
-- Obstacles, collectibles, and monsters
+- **Character Movement**: Basic controls for running, jumping, and attacking.
+- **Obstacles and Challenges**: Navigate through various obstacles and defeat monsters.
+- **Collectibles**: Health and energy regeneration items to aid the player throughout the levels.
 
 ## Preview
 
@@ -17,4 +17,4 @@ This is a simple platformer game developed as part of a school project. The game
 
 ## Credits
 
-- Special thanks to KaarinGaming for providing the base code and tutorial that helped shape this project.
+- Special thanks to [KaarinGaming](https://github.com/KaarinGaming) for providing the base code and tutorial that helped shape this project.
